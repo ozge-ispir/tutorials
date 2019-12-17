@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: '', component: LibraryComponent},
   {path: 'articles/:id', component: ArticleComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'register', component: RegisterComponent},
 ];
 
 @NgModule({

@@ -2,7 +2,7 @@
   Retour
 </button>
 
-<form class="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit(articleForm.value)">
+<form class="article-form" [formGroup]="articleForm" (ngSubmit)="onSubmit(articleForm.value)" method="post">
   <mat-form-field class="article-field-full-width">
     <input matInput id="title" type="text" placeholder="Titre" formControlName="title">
   </mat-form-field>

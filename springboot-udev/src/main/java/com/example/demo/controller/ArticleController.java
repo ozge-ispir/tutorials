@@ -44,13 +44,9 @@ public class ArticleController {
     @ApiOperation(value = "Add Article", response = ArticleJSON.class)
     @RequestMapping(method = RequestMethod.POST, headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public ArticleJSON addArticle(@ApiParam(value = "Authorization token", required = true) @RequestHeader("Authorization") String authorization,
-                                  @ApiParam(value = "Article to Add", required = true) @Valid @RequestBody ArticleJSON article) {
+    public ArticleJSON addArticle(@ApiParam(value = "Article to Add", required = true) @Valid @RequestBody ArticleJSON article) {
         // test with @Valid : @Valid @RequestBody ... get Spring Bad Request 400 if NotEmpty
-        // or JPA RollbackException (DB side)
-        if (!authService.isAuthorize(authorization)) {
-            throw new ForbiddenException();
-        }
+
         return articleService.addArticle(article);
     }
 

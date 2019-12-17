@@ -2,6 +2,7 @@ package com.example.demo.helper;
 
 import com.example.demo.pojo.Article;
 import com.example.demo.pojo.ArticleJSON;
+import com.example.demo.pojo.ArticleJSON;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class Mapper {
+public class ArticleMapper {
 
     public Article mapTo(ArticleJSON articleJSON) {
         Assert.notNull(articleJSON, "The articleJSON must not be null");
@@ -17,7 +18,7 @@ public class Mapper {
         // must not set id !
         b.setTitle(articleJSON.getTitle());
         b.setMessage(articleJSON.getMessage());
-        b.setAuthor(articleJSON.getAuthor());
+        b.setAuthor(Integer.parseInt(articleJSON.getAuthor()));
         return b;
     }
 
@@ -26,7 +27,7 @@ public class Mapper {
         ArticleJSON bJSON = new ArticleJSON();
         bJSON.setTitle(article.getTitle());
         bJSON.setMessage(article.getMessage());
-        bJSON.setAuthor(article.getAuthor());
+        bJSON.setAuthor(Integer.toString(article.getAuthor()));
         bJSON.setId(article.getId());
         return bJSON;
     }
@@ -35,4 +36,5 @@ public class Mapper {
         Assert.notNull(articleList, "The articleList must not be null");
         return articleList.stream().map(this::mapTo).collect(Collectors.toList());
     }
+
 }
