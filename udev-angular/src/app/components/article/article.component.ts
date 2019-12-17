@@ -5,21 +5,21 @@ import {Article} from '../../models/article';
 import {ArticleRepository} from '../../services/article.repository';
 
 @Component({
-  selector: 'ngu-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  selector: 'ngu-article',
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.scss']
 })
-export class BookComponent implements OnInit {
-  book: Observable<Article>;
+export class ArticleComponent implements OnInit {
+  article: Observable<Article>;
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: ArticleRepository
+    private articleService: ArticleRepository
   ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.book = this.bookService.byId(params.get('id'));
+      this.article = this.articleService.byId(params.get('id'));
     });
   }
 

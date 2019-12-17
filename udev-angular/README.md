@@ -39,7 +39,7 @@ If you change the port of the backend server, don't forget to change it also in 
 
 To call `in memory` services, just change  the provider configuration of `app.module.ts`:
 ```
-{provide: ArticleRepository, useFactory: (http: HttpClient) => new BookService(http), deps: [HttpClient]}
+{provide: ArticleRepository, useFactory: (http: HttpClient) => new ArticleService(http), deps: [HttpClient]}
 ```
 with
 ```

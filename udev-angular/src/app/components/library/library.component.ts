@@ -12,11 +12,11 @@ export class LibraryComponent implements OnInit {
   library: Observable<Article[]>;
 
   constructor(
-    private bookService: ArticleRepository
+    private articleService: ArticleRepository
   ) { }
 
   ngOnInit() {
-    this.library = this.bookService.all();
+    this.library = this.articleService.all();
   }
 
 }

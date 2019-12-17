@@ -10,15 +10,16 @@ import {ArticleRepository} from '../../services/article.repository';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  bookForm: FormGroup;
+  articleForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar,
-    private bookService: ArticleRepository
+    private articleService: ArticleRepository
   ) {
-    this.bookForm = this.formBuilder.group({
+    this.articleForm = this.formBuilder.group({
       title: '',
+      message: '',
       author: ''
     });
   }
@@ -28,16 +29,16 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(data: Article) {
     if (this.isFormComplete(data)) {
-      this.bookService.add(data)
+      this.articleService.add(data)
         .subscribe(() => {
-          this.bookForm.reset();
-          this.openSnackBar('Le livre a été ajouté');
+          this.articleForm.reset();
+          this.openSnackBar('Le sujet a été ajouté');
         });
     }
   }
 
   private isFormComplete(data: Article) {
-    return data && (data.title && data.author);
+    return data && (data.title && data.message && data.author);
   }
 
   private openSnackBar(message: string) {

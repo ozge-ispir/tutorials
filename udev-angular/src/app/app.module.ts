@@ -7,17 +7,17 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {BookComponent} from './components/book/book.component';
+import {ArticleComponent} from './components/article/article.component';
 import {LibraryComponent} from './components/library/library.component';
 import {RegisterComponent} from './components/register/register.component';
 import {ArticleRepository} from './services/article.repository';
-import {BookService} from './services/real/book.service';
+import {ArticleService} from './services/real/article.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LibraryComponent,
-    BookComponent,
+    ArticleComponent,
     RegisterComponent
   ],
   imports: [
@@ -34,7 +34,7 @@ import {BookService} from './services/real/book.service';
     MatSnackBarModule
   ],
   providers: [
-    {provide: ArticleRepository, useFactory: (http: HttpClient) => new BookService(http), 'deps': [HttpClient]}
+    {provide: ArticleRepository, useFactory: (http: HttpClient) => new ArticleService(http), deps: [HttpClient]}
   ],
   bootstrap: [AppComponent]
 })

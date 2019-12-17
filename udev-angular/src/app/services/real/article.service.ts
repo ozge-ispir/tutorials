@@ -6,13 +6,13 @@ import {Article} from '../../models/article';
 import {ArticleRepository} from '../article.repository';
 
 @Injectable()
-export class BookService implements ArticleRepository {
-  private url: string = environment.api + '/books';
+export class ArticleService implements ArticleRepository {
+  private url: string = environment.api + '/articles';
 
   constructor(private http: HttpClient) { }
 
-  add(book: Article): Observable<Article> {
-    return this.http.post<Article>(this.url, book);
+  add(article: Article): Observable<Article> {
+    return this.http.post<Article>(this.url, article);
   }
 
   all(): Observable<Article[]> {
