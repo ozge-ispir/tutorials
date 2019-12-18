@@ -16,6 +16,6 @@ public class ArticleJSON implements Serializable {
     @NotEmpty
     private String message;
     @NotEmpty
-    private String author;
+    private UserJSON author;
 
 }

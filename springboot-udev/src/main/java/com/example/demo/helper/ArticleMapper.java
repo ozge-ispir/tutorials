@@ -17,17 +17,15 @@ public class ArticleMapper {
         // must not set id !
         a.setTitle(articleJSON.getTitle());
         a.setMessage(articleJSON.getMessage());
-        a.setAuthor(Integer.parseInt(articleJSON.getAuthor()));
+        a.setAuthor(articleJSON.getAuthor().getId());
         return a;
     }
 
     public ArticleJSON mapTo(Article article) {
         Assert.notNull(article, "The article must not be null");
         ArticleJSON aJSON = new ArticleJSON();
-
         aJSON.setTitle(article.getTitle());
         aJSON.setMessage(article.getMessage());
-        aJSON.setAuthor(Integer.toString(article.getAuthor()));
         aJSON.setId(article.getId());
         return aJSON;
     }

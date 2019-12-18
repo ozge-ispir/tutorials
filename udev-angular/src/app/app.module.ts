@@ -14,6 +14,7 @@ import {ArticleRepository} from './services/article.repository';
 import {ArticleService} from './services/real/article.service';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ListeUserComponent } from './components/liste-user/liste-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LogoutComponent } from './logout/logout.component';
     ArticleComponent,
     RegisterComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ListeUserComponent
   ],
   imports: [
     BrowserModule,

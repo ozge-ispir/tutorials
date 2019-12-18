@@ -5,13 +5,15 @@ import {LibraryComponent} from './components/library/library.component';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
+import {ListeUserComponent} from './components/liste-user/liste-user.component';
 
 const routes: Routes = [
-  {path: '', component: LibraryComponent},
+  {path: 'library', component: LibraryComponent},
   {path: 'articles/:id', component: ArticleComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
+  {path: 'liste-user', component: ListeUserComponent},
 ];
 
 @NgModule({
