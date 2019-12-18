@@ -30,13 +30,13 @@ public class ArticleService {
     @Cacheable(cacheManager = "redisCacheManager", cacheNames = "articles", key = "#id")
     public ArticleJSON getArticleById(long id) {
         log.info("Called for getArticleById ...");
-        Article b = articleRepository.getOne(id);
-        return articleMapper.mapTo(b);
+        Article a = articleRepository.getOne(id);
+        return articleMapper.mapTo(a);
     }
 
     public ArticleJSON addArticle(ArticleJSON subject) {
-        Article b = articleRepository.save(articleMapper.mapTo(subject));
-        return articleMapper.mapTo(b);
+        Article a = articleRepository.save(articleMapper.mapTo(subject));
+        return articleMapper.mapTo(a);
     }
 
     public List<ArticleJSON> getAllArticlesByAuthor(String author) {
